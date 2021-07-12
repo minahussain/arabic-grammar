@@ -3,10 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { usePromiseTracker } from "react-promise-tracker";
+import Loader from 'react-loader-spinner';
+
+const LoadingIndicator = props => {
+  const { promiseInProgress } = usePromiseTracker({delay: 500});
+  return(
+    promiseInProgress && (
+      <div className="spinner">
+        <Loader type="ThreeDots" color="#fff" height="100" width="100" />
+      </div>
+    )
+  )
+}
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    <LoadingIndicator />
   </React.StrictMode>,
   document.getElementById('root')
 );
