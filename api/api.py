@@ -10,9 +10,13 @@ from camel_tools.morphology.analyzer import Analyzer
 # import arabic parser
 import arabic_parser
 
-app = Flask(__name__, static_folder='build/', static_url_path='/')
+app = Flask(__name__, static_folder='../build', static_url_path='/')
 CORS(app, support_credentials=True)
 app.config['JSON_AS_ASCII'] = False
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 @cross_origin(origin="*")
 @app.route('/api/pos', methods = ['POST'])
