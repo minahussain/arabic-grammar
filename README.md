@@ -3,7 +3,7 @@
 ## 👑  Description 
 
 A Flask + React app that processes a user input sentence in Arabic and displays the parts of speech for each word.
-* Uses camel_tools to process Arabic sentence
+* Uses [camel-tools](https://github.com/CAMeL-Lab/camel_tools) to process Arabic sentence
 * Referenced [Supriyo Biswas' parser](https://www.notion.so/Arabic-Grammar-Project-cdb44e57b3014af08dc1b95c2ab6cca5#e5b75ac4afb2434ab68d27566505cf0d) to build this one
 * Created the pomegranate logo by building off an existing logo from Logo Creator in Figma
 
@@ -26,7 +26,7 @@ Follow instructions from [python](https://www.python.org/downloads/) to install 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install dependencies.
 
 ```bash
-pip install camel_tools
+pip install camel-tools
 ```
 
 ## ⌛ Run
