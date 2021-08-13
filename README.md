@@ -1,6 +1,6 @@
-# 👑 Arabic Grammar App - Mina Hussain
+# Arabic Grammar App - Mina Hussain
 
-## Description 
+## 👑  Description 
 
 A Flask + React app that processes a user input sentence in Arabic and displays the parts of speech for each word.
 * Uses camel_tools to process Arabic sentence
