@@ -1,5 +1,6 @@
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
+import os
 # import camel tools
 from camel_tools.utils.dediac import dediac_ar
 from camel_tools.utils.normalize import normalize_alef_maksura_ar
@@ -18,6 +19,10 @@ app.config['JSON_AS_ASCII'] = False
 def index():
     return app.send_static_file('index.html')
 
+@app.errorhandler(404)
+def not_found(e):
+    return app.send_static_file('index.html')
+
 @cross_origin(origin="*")
 @app.route('/api/pos', methods = ['POST'])
 def get_pos():
@@ -30,4 +35,7 @@ def get_pos():
         return pr.parse(text)
     except arabic_parser.ParseError as e:
         print('Error: ' + str(e))
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', debug=False, port=os.environ.get('PORT', 80))
 
