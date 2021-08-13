@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './styles/index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { usePromiseTracker } from "react-promise-tracker";
@@ -11,7 +11,7 @@ const LoadingIndicator = props => {
   return(
     promiseInProgress && (
       <div className="spinner">
-        <Loader type="ThreeDots" color="#fff" height="100" width="100" />
+        <Loader type="ThreeDots" color="#aa4638" height="100" width="100" />
       </div>
     )
   )

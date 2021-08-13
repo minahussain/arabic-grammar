@@ -1,0 +1,134 @@
+@import './variables';
+
+.App {
+    background-color: $background-color;
+    text-align: center;
+  }
+  
+  .App-logo {
+    height: 20vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 6s alternate;
+    }
+  }
+  
+  .App-header {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(20px + 2vmin);
+    color: $white-color;
+  }
+  
+  .App-link {
+    color: $white-color;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(80deg);
+    }
+  }
+  
+  #input-area {
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  input[type="text"], textarea {
+    background-color : $secondary-color;
+    color: $black-color; 
+    font-size: 20px;
+    border-color: $black-color;
+  }
+  
+  span {
+    direction: rtl;
+    background-color: $secondary-color;
+    padding: 18px;
+    padding-right: 8px;
+  }
+
+  div {
+    color: $white-color;
+  }
+  
+  [class$="sentence"] {
+    background-image: linear-gradient(bottom, $primary-layer, $primary-layer 20%, transparent 50%, transparent 100%);
+    background-image: -webkit-linear-gradient(bottom, $primary-layer, $primary-layer 20%, transparent 50%, transparent 100%);
+    border-radius: 25px;
+    margin: 25px;
+  }
+  
+  .subject, .predicate {
+    background-image: linear-gradient(bottom, $secondary-layer, $secondary-layer 20%, transparent 40%, transparent 100%);
+    background-image: -webkit-linear-gradient(bottom, $secondary-layer, $secondary-layer 20%, transparent 40%, transparent 100%);
+    border-radius: 25px;
+  }
+  
+  [class$="phrase"] {
+    background-image: linear-gradient(bottom, $tertiary-layer, $tertiary-layer 30%, transparent 50%, transparent 100%);
+    background-image: -webkit-linear-gradient(bottom, $tertiary-layer, $tertiary-layer 30%, transparent 50%, transparent 100%);
+    border-radius: 25px;
+    margin: 5px;
+    color: $black-color;
+  }
+
+  .verb {
+    background-color: $verb;
+    border-radius: 25px;
+  }
+  
+  [class^="noun"] {
+    background-color: $noun;
+    border-radius: 25px;
+  }
+  
+  .adj {
+    background-color: $adj;
+    border-radius: 25px;
+  }
+  
+  .adv {
+    background-color: $adv;
+    border-radius: 25px;
+  }
+
+  .prep {
+    background-color: $prep;
+    color: $black-color;
+    border-radius: 25px;
+  }
+
+  .prep > div {
+    color: $black-color;
+  }
+  
+  .children {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-bottom: 10px;
+    flex-grow: 4;
+    justify-content: center;
+  }
+  
+  ul,ol,dl,p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  li, p {
+    line-height: 2;
+    list-style-position: inside;
+    padding: 0;
+    text-align: left;
+  }

@@ -1,13 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import logo from './pom_logo.png';
-import './App.css';
-import SentenceList from './SentenceList/SentenceList';
+import './styles/main.scss';
+import SentenceList from './components/SentenceList';
 import { trackPromise } from 'react-promise-tracker';
 
+async function fetchPartsOfSpeech(config) {
+  const response = await fetch('/api/pos', config);
+
+  if (!response.ok) {
+    const message = `An error has occured: ${response.status}`;    
+    throw new Error(message);  
+  }
+  const pos = await response.json();
+  return pos;
+}
+
 function App() {
-  const [value, setValue] = useState("الكُوبُ عَلَى الطَّاوِلَةِ");
-  const [partsOfSpeech, setPartsOfSpeech] = useState([]);
-  const url = '/api/pos';
+  const [value, setValue] = useState("الكُوبُ عَلَى الطَّاوِلَةِ")
+  const [partsOfSpeech, setPartsOfSpeech] = useState([])
+  const [err, setErr] = useState('')
 
   useEffect(() => {
     // clean value input i.e. remove special chars, emojis, hashtags, digits
@@ -24,16 +35,20 @@ function App() {
     }
 
     trackPromise(
-      fetch('/api/pos', config).then(res => res.json()).then(data => {
+      fetchPartsOfSpeech(config).then(data => {
         console.log(data);
         setPartsOfSpeech(data);
-      }).catch(console.error)
+      }).catch(error => {
+        console.warn(error.message); // 'An error has occurred: 404'
+        setErr(error.message);
+      })
     );
     
   }, [value]);
 
   const handleChange = (e) => {
     setValue(e.target.value);
+    setPartsOfSpeech([])
   }
 
   return (
@@ -41,13 +56,13 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo rotating" alt="logo" />
         <label>
-          <p>Please enter your sentence:</p>
+          <p>Input sentence below:</p>
         </label>
         <textarea id="input-area" defaultValue={value} onChange={handleChange} 
           rows="4" cols="50" dir="auto" lang="ar" />
       </header>
       <div className="App">
-        <SentenceList {...partsOfSpeech} />
+        { !err && <SentenceList {...partsOfSpeech} /> }
       </div>
     </div>
   );

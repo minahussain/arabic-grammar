@@ -144,7 +144,8 @@ class POSParser:
         else:
             raise ParseError(
                 last_error_pos,
-                'Expected %s but got %s' % str(last_error_rules),
+                'Expected %s but got %s',
+                ','.join(str(last_error_rules)),
                 self.text[last_error_pos]
             )
 
@@ -171,8 +172,7 @@ class POSParser:
 
         raise ParseError(
             self.pos + 1,
-            'Expected %s but got %s',
-            ','.join(str(expected_pos)),
+            'Expected a different keyword for: %s',
             self.text[self.pos + 1],
         )
     
@@ -207,14 +207,11 @@ class ArabicParser(POSParser):
         return self.match('sentence')
 
     def sentence(self):
-        return dict(
-                    partOfSpeech='sentence',
-                    children=[self.match('nominal')]
-        )
+        return self.match('nominal')
 
     def nominal(self):
         return dict(
-                    partOfSpeech='nominal', 
+                    partOfSpeech='nominal sentence', 
                     children=[self.match('subject'), self.match('predicate')]
         )
 
@@ -243,22 +240,19 @@ class ArabicParser(POSParser):
         )
 
     def phrase(self):
-        return dict(
-                    partOfSpeech='phrase',
-                    children=[self.match('PP', 'AP')]
-        )
+        return self.match('PP', 'AP')
     
     # AP is adverbial phrase
     def AP(self):
         return dict(
-                    partOfSpeech='adverbial', 
+                    partOfSpeech='adverbial phrase', 
                     children=[self.match('adverb'), self.match('noun')]
         )
 
     # PP is prepositional phrase
     def PP(self):
         return dict(
-                    partOfSpeech='prepositional', 
+                    partOfSpeech='prepositional phrase', 
                     children=[self.match('preposition'), self.match('noun')]
         )
     
