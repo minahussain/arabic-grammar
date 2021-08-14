@@ -3,7 +3,7 @@ import React from 'react'
 const style = {
   display: 'flex',
   flexGrow: 1,
-  padding: '10px 0',
+  padding: '5px 0',
   justifyContent: 'space-evenly',
   flexDirection: 'column-reverse'
 }

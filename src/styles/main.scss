@@ -48,6 +48,7 @@
     color: $black-color; 
     font-size: 20px;
     border-color: $black-color;
+    height: 50px;
   }
   
   span {
@@ -62,21 +63,21 @@
   }
   
   [class$="sentence"] {
-    background-image: linear-gradient(bottom, $primary-layer, $primary-layer 20%, transparent 50%, transparent 100%);
-    background-image: -webkit-linear-gradient(bottom, $primary-layer, $primary-layer 20%, transparent 50%, transparent 100%);
+    background-image: linear-gradient(to top, $primary-layer, $primary-layer 20%, transparent 50%, transparent 100%);
+    background-image: -webkit-linear-gradient(to top, $primary-layer, $primary-layer 20%, transparent 50%, transparent 100%);
     border-radius: 25px;
     margin: 25px;
   }
   
   .subject, .predicate {
-    background-image: linear-gradient(bottom, $secondary-layer, $secondary-layer 20%, transparent 40%, transparent 100%);
-    background-image: -webkit-linear-gradient(bottom, $secondary-layer, $secondary-layer 20%, transparent 40%, transparent 100%);
+    background-image: linear-gradient(to top, $secondary-layer, $secondary-layer 20%, transparent 40%, transparent 100%);
+    background-image: -webkit-linear-gradient(to top, $secondary-layer, $secondary-layer 20%, transparent 40%, transparent 100%);
     border-radius: 25px;
   }
   
   [class$="phrase"] {
-    background-image: linear-gradient(bottom, $tertiary-layer, $tertiary-layer 30%, transparent 50%, transparent 100%);
-    background-image: -webkit-linear-gradient(bottom, $tertiary-layer, $tertiary-layer 30%, transparent 50%, transparent 100%);
+    background-image: linear-gradient(to top, $tertiary-layer, $tertiary-layer 30%, transparent 50%, transparent 100%);
+    background-image: -webkit-linear-gradient(to top, $tertiary-layer, $tertiary-layer 30%, transparent 50%, transparent 100%);
     border-radius: 25px;
     margin: 5px;
     color: $black-color;

@@ -1,5 +1,6 @@
 import api
 
+# todo
 # test by mocking the response from api
 async def test_request() -> None:
     successRate = api()
