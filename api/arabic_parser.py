@@ -4,7 +4,6 @@ from camel_tools.utils.dediac import dediac_ar
 from camel_tools.utils.normalize import normalize_alef_maksura_ar
 from camel_tools.utils.normalize import normalize_alef_ar
 from camel_tools.utils.normalize import normalize_teh_marbuta_ar
-from camel_tools.tokenizers.word import simple_word_tokenize
 from camel_tools.morphology.database import MorphologyDB
 from camel_tools.morphology.analyzer import Analyzer
 

@@ -1,14 +1,6 @@
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
 import os
-# import camel tools
-from camel_tools.utils.dediac import dediac_ar
-from camel_tools.utils.normalize import normalize_alef_maksura_ar
-from camel_tools.utils.normalize import normalize_alef_ar
-from camel_tools.utils.normalize import normalize_teh_marbuta_ar
-from camel_tools.morphology.database import MorphologyDB
-from camel_tools.morphology.analyzer import Analyzer
-# import arabic parser
 import arabic_parser
 
 app = Flask(__name__, static_folder='../build', static_url_path='/')
